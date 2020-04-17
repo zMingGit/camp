@@ -32,7 +32,8 @@ Content-Disposition: form-data; name="field2"; filename="example.txt"
 value2
 ----
 
-要求实现如下函数，并写单元测试
+要求实现如下函数，并写单元测试。
+
 
 [source,go]
 ----
@@ -46,12 +47,14 @@ struct Request {
     Path string,
     Version string,
     Headers []Header,
+    Body []byte,
 }
 
 struct Response {
     Version string,
     Code uint,
     Headers []Header,
+    Body []byte,
 }
 
 func parse_request(content string) *Request {
