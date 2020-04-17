@@ -54,7 +54,7 @@ struct Response {
     Version string,
     Code uint,
     Headers []Header,
-    Body []byte,
+    Body []byte, 
 }
 
 func parse_request(content string) *Request {
@@ -66,3 +66,9 @@ func write_reqponse(resp *Response) []byte {
 }
 
 ----
+
+
+[CAUTION]
+====
+Content-Type: multipart/form-data;boundary="boundary" 怎么处理
+====
