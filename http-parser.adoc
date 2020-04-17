@@ -1,0 +1,65 @@
+= Http Parser
+
+== 最终成果
+输入举例
+
+----
+GET / HTTP/1.1
+HOST: baidu.com
+----
+
+----
+POST / HTTP/1.1
+Host: foo.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 13
+
+say=Hi&to=Mom
+----
+
+----
+POST /test.html HTTP/1.1 
+Host: example.org 
+Content-Type: multipart/form-data;boundary="boundary" 
+
+--boundary 
+Content-Disposition: form-data; name="field1" 
+
+value1 
+--boundary 
+Content-Disposition: form-data; name="field2"; filename="example.txt" 
+
+value2
+----
+
+要求实现如下函数，并写单元测试
+
+[source,go]
+----
+struct Header {
+    Name string,
+    Value string
+}
+
+struct Request {
+    Method string,
+    Path string,
+    Version string,
+    Headers []Header,
+}
+
+struct Response {
+    Version string,
+    Code uint,
+    Headers []Header,
+}
+
+func parse_request(content string) *Request {
+
+}
+
+func write_reqponse(resp *Response) []byte {
+
+}
+
+----
